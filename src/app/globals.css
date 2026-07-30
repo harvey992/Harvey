@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  --color-primary: #FF6B35;
+  --color-secondary: #FFF8F0;
+  --color-accent: #22C55E;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #FAFAFA;
+  --foreground: #171412;
+  --card: #FFFFFF;
+  --card-foreground: #171412;
+  --muted: #F4EEE8;
+  --muted-foreground: #756B63;
+  --border: #ECE2D8;
+  --ring: #FF6B35;
+}
+
+.dark {
+  --background: #0F1115;
+  --foreground: #FFF9F3;
+  --card: #1A1D24;
+  --card-foreground: #FFF9F3;
+  --muted: #242832;
+  --muted-foreground: #B8AFA7;
+  --border: #2B303B;
+  --ring: #FF8A5F;
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { background: var(--background); color: var(--foreground); font-family: Inter, system-ui, sans-serif; }
+:focus-visible { outline: 3px solid color-mix(in srgb, var(--ring) 70%, transparent); outline-offset: 3px; }
+::selection { background: #FF6B35; color: white; }
+
+.safe-screen { min-height: 100svh; }
+.glass-badge { background: color-mix(in srgb, white 22%, transparent); border: 1px solid color-mix(in srgb, white 34%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }

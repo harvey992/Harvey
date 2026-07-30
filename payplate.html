@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PayPlate premium mobile app UI concept for university dining, QR payments, Rand wallet, and rewards." />
+  <title>PayPlate — 2026 Mobile App UI System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6B35;
+      --emerald: #22C55E;
+      --ink: #171412;
+      --muted: #7B7068;
+      --paper: #FFF8F2;
+      --surface: #FFFFFF;
+      --surface-2: #F6EFE8;
+      --line: #EEE2D8;
+      --shadow: 0 22px 58px rgba(60, 38, 25, .13);
+      --shadow-soft: 0 12px 28px rgba(60, 38, 25, .09);
+      --radius: 20px;
+      color-scheme: light;
+    }
+    [data-theme="dark"] {
+      --ink: #FFF9F3;
+      --muted: #BBAEA4;
+      --paper: #0E0B09;
+      --surface: #18130F;
+      --surface-2: #241C17;
+      --line: #332A23;
+      --shadow: 0 28px 70px rgba(0, 0, 0, .45);
+      --shadow-soft: 0 14px 34px rgba(0, 0, 0, .34);
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 8% 0%, rgba(255,107,53,.22), transparent 30rem), var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+    }
+    h1, h2, h3, .brand { font-family: "Plus Jakarta Sans", Inter, sans-serif; letter-spacing: -.045em; }
+    .showcase-header { padding: 56px min(6vw, 72px) 18px; display: grid; gap: 18px; grid-template-columns: 1fr auto; align-items: end; }
+    .kicker { color: var(--orange); text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 900; }
+    .showcase-header h1 { max-width: 900px; font-size: clamp(42px, 8vw, 96px); line-height: .88; margin: 8px 0; }
+    .showcase-header p { max-width: 760px; color: var(--muted); font-size: 18px; line-height: 1.6; margin: 0; }
+    .theme-toggle { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 13px 16px; font-weight: 800; box-shadow: var(--shadow-soft); cursor: pointer; }
+    .gallery { padding: 24px min(6vw, 72px) 84px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 38px; }
+    .shot { display: grid; place-items: center; gap: 12px; }
+    .shot-title { color: var(--muted); font-weight: 850; }
+    .phone { width: 390px; max-width: 100%; padding: 11px; border-radius: 44px; background: linear-gradient(145deg, #2D2824, #050505); box-shadow: 0 34px 86px rgba(0,0,0,.28); }
+    .screen { position: relative; height: 812px; overflow: hidden; border-radius: 34px; background: var(--paper); border: 1px solid rgba(255,255,255,.12); }
+    .status { height: 42px; padding: 16px 24px 0; display: flex; justify-content: space-between; font-size: 13px; font-weight: 900; position: relative; z-index: 5; }
+    .content { padding: 16px 20px 100px; position: relative; z-index: 2; }
+    .page-title { font-size: 30px; line-height: 1.04; margin: 8px 0; }
+    .sub { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .stack { display: grid; gap: 14px; }
+    .brand-mark { width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center; color: white; font-size: 30px; background: linear-gradient(135deg, var(--orange), #FF9C38); box-shadow: 0 16px 36px rgba(255,107,53,.32); }
+    .btn { min-height: 54px; border: 0; border-radius: 20px; width: 100%; background: var(--orange); color: #fff; font-weight: 900; font-size: 15px; box-shadow: 0 16px 34px rgba(255,107,53,.28); transition: transform .22s ease, box-shadow .22s ease; }
+    .btn:hover, .card:hover { transform: translateY(-3px); }
+    .btn.alt { background: var(--surface-2); color: var(--ink); box-shadow: none; }
+    .field { min-height: 54px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); display: flex; align-items: center; gap: 10px; padding: 0 16px; color: var(--muted); font-weight: 650; }
+    .card { border-radius: 20px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-soft); transition: transform .22s ease, box-shadow .22s ease; }
+    .photo { background-size: cover; background-position: center; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 11px; border-radius: 999px; color: white; font-size: 12px; font-weight: 900; background: rgba(255,255,255,.28); border: 1px solid rgba(255,255,255,.42); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); text-shadow: 0 1px 12px rgba(0,0,0,.28); }
+    .glass-reward { background: linear-gradient(135deg, rgba(255,255,255,.32), rgba(255,255,255,.12)); border: 1px solid rgba(255,255,255,.36); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
+    .nav { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 72px; border-radius: 24px; background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid var(--line); display: flex; align-items: center; justify-content: space-around; box-shadow: var(--shadow); backdrop-filter: blur(20px); z-index: 6; }
+    .nav div { display: grid; gap: 3px; place-items: center; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .nav .active { color: var(--orange); }
+    .nav b { font-size: 21px; }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #FFD8C8, var(--orange)); box-shadow: var(--shadow-soft); }
+    .pill { border-radius: 999px; background: var(--surface-2); color: var(--ink); padding: 9px 12px; font-size: 12px; font-weight: 850; white-space: nowrap; }
+    .hero-photo { min-height: 210px; padding: 14px; display: flex; align-items: flex-end; background-image: linear-gradient(to top, rgba(0,0,0,.64), transparent 62%), var(--img); }
+    .wallet-card { padding: 22px; min-height: 214px; color: white; background: radial-gradient(circle at 90% 0%, rgba(255,107,53,.85), transparent 48%), linear-gradient(135deg, #111, #36312d); }
+    .tile-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .tile { min-height: 76px; padding: 9px; display: grid; place-items: center; text-align: center; background: color-mix(in srgb, var(--emerald) 9%, var(--surface)); border-radius: 20px; font-size: 12px; font-weight: 850; }
+    .restaurant-card { overflow: hidden; }
+    .restaurant-card .photo { height: 128px; padding: 10px; display: flex; align-items: flex-start; justify-content: space-between; }
+    .restaurant-card .body { padding: 12px; }
+    .menu-row, .notice-row, .history-row { padding: 12px; display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; }
+    .thumb { width: 64px; height: 64px; border-radius: 18px; background-size: cover; background-position: center; }
+    .setting { min-height: 54px; border-bottom: 1px solid var(--line); padding: 4px 0; }
+    .map { height: 290px; border-radius: 26px; background: radial-gradient(circle at 25% 35%, rgba(34,197,94,.22), transparent 7rem), linear-gradient(135deg, #EAF8EF, #F9EFE6); position: relative; overflow: hidden; }
+    [data-theme="dark"] .map { background: linear-gradient(135deg, #132019, #221712); }
+    .map:before, .map:after { content: ""; position: absolute; inset: 40% -20%; height: 32px; background: rgba(255,255,255,.58); transform: rotate(-16deg); }
+    .pin { position: absolute; width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: var(--orange); color: white; box-shadow: var(--shadow); }
+    .scanner { height: 340px; border-radius: 30px; border: 2px solid rgba(255,255,255,.55); background: linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.58)), url(https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80) center/cover; overflow: hidden; }
+    .scanline { height: 3px; margin: 92px 26px 0; background: var(--emerald); box-shadow: 0 0 24px var(--emerald); animation: scan 2.4s infinite ease-in-out; }
+    @keyframes scan { 50% { transform: translateY(154px); } }
+    .success-ring { width: 136px; height: 136px; border-radius: 50%; margin: 48px auto 20px; display: grid; place-items: center; background: color-mix(in srgb, var(--emerald) 16%, var(--surface)); color: var(--emerald); font-size: 54px; animation: pop .72s cubic-bezier(.2,1.4,.3,1); }
+    @keyframes pop { from { transform: scale(.72); opacity: .2; } }
+    .splash-screen { display: grid; place-items: center; text-align: center; background: radial-gradient(circle at 50% 34%, rgba(255,107,53,.44), transparent 16rem), var(--paper); }
+    .onboard-art { height: 360px; border-radius: 0 0 38px 38px; background: radial-gradient(circle at 78% 22%, rgba(34,197,94,.4), transparent 8rem), linear-gradient(135deg, #163E34, #FF6B35); position: relative; overflow: hidden; }
+    .plate { position: absolute; border-radius: 50%; background: rgba(255,255,255,.88); box-shadow: var(--shadow); display: grid; place-items: center; font-size: 58px; }
+    .plate.one { width: 158px; height: 158px; left: 28px; top: 64px; }
+    .plate.two { width: 210px; height: 210px; right: -36px; bottom: 26px; }
+    .cart-total { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 16px; border-radius: 26px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 6; }
+    @media (max-width: 720px) { .showcase-header { grid-template-columns: 1fr; padding-top: 34px; } .phone { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header class="showcase-header">
+    <div>
+      <div class="kicker">PayPlate / premium student dining</div>
+      <h1>A billion-dollar campus food, wallet, and rewards app.</h1>
+      <p>Original 2026 mobile UI direction inspired by the quality bar of Apple, Airbnb, Uber Eats, Google Maps, and Starbucks Rewards — with Rand wallet balances, QR payment moments, elegant navigation, and reusable components.</p>
+    </div>
+    <button class="theme-toggle" type="button" onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">Toggle light / dark</button>
+  </header>
+
+  <main class="gallery">
+    <section class="shot"><div class="phone"><div class="screen splash-screen"><div><div class="brand-mark" style="width:92px;height:92px;border-radius:28px;margin:auto">🍽</div><h2 class="page-title brand">PayPlate</h2><p class="sub">Eat well. Pay fast. Earn everywhere.</p></div></div></div><div class="shot-title">Splash</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="onboard-art"><div class="plate one">🥗</div><div class="plate two">🍜</div></div><div class="content stack"><span class="badge" style="width:max-content;color:white">New student perks</span><h2 class="page-title">Your campus food map, wallet, and rewards pass.</h2><p class="sub">Find top-rated spots, pay with QR codes, and earn Plate Points every time you eat.</p><button class="btn">Get started</button><button class="btn alt">I already have an account</button></div></div></div><div class="shot-title">Onboarding</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><div class="brand-mark">🍽</div><h2 class="page-title">Welcome back</h2><p class="sub">Use your student account to scan, split, and collect Rand-value rewards.</p><div class="field">✉️ maya@university.ac.za</div><div class="field">🔒 ••••••••</div><button class="btn">Log in</button><button class="btn alt">Continue with Apple</button><p class="sub">Secure sign-in with passkeys and student verification.</p></div></div></div><div class="shot-title">Login</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Create your plate</h2><p class="sub">Join with a verified university email and unlock nearby partner deals.</p><div class="field">Full name</div><div class="field">University email</div><div class="field">Password</div><div class="field">Campus: UCT Upper Campus</div><div class="glass-reward card" style="padding:16px"><b>🎓 R45 welcome credit</b><p class="sub">Available after your first QR payment.</p></div><button class="btn">Register</button></div></div></div><div class="shot-title">Register</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><div class="row"><div><p class="sub">Good afternoon, Maya</p><h2 class="page-title">Cravings near Engineering Mall</h2></div><div class="avatar"></div></div><div class="field">🔎 Search bowls, burgers, coffee</div><div class="tile-grid"><div class="tile">🍔<br>Food</div><div class="tile">☕<br>Coffee</div><div class="tile">🥗<br>Healthy</div><div class="tile">🎁<br>Deals</div></div><div class="wallet-card card"><span class="badge">Wallet ready</span><h2>R 428.40</h2><p>PayPlate Balance</p><div class="row"><b>2,840 pts</b><b>Scan →</b></div></div><div class="hero-photo card" style="--img:url(https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80)"><span class="badge">15% back • 8 min walk</span></div></div><nav class="nav"><div class="active"><b>⌂</b>Home</div><div><b>⌕</b>Search</div><div><b>▣</b>Pay</div><div><b>◇</b>Rewards</div></nav></div></div><div class="shot-title">Home</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Search</h2><div class="field">🔎 sushi, halal, open now</div><div class="row" style="overflow:hidden"><span class="pill">Under R120</span><span class="pill">4.7+</span><span class="pill">Vegetarian</span></div><div class="map"><span class="pin" style="left:54px;top:74px">🍕</span><span class="pin" style="right:70px;top:150px;background:var(--emerald)">☕</span><span class="pin" style="left:160px;bottom:54px">🍜</span></div><div class="restaurant-card card"><div class="menu-row"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=300&q=80)"></div><div><b>Koi Sushi Lab</b><p class="sub">4.9 • 9 min • R35 avg reward</p></div><b>→</b></div></div></div><nav class="nav"><div><b>⌂</b>Home</div><div class="active"><b>⌕</b>Search</div><div><b>▣</b>Pay</div><div><b>◇</b>Rewards</div></nav></div></div><div class="shot-title">Search</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Discover</h2><div class="row" style="overflow:hidden"><span class="pill">Trending</span><span class="pill">New</span><span class="pill">Rewards</span></div><div class="restaurant-card card"><div class="photo" style="background-image:linear-gradient(to top,rgba(0,0,0,.48),transparent),url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80)"><span class="badge">Chef pick</span><span class="badge">4.9</span></div><div class="body"><b>Saffron Social</b><p class="sub">Modern Indian • R90 for two • 12% back</p></div></div><div class="restaurant-card card"><div class="photo" style="background-image:linear-gradient(to top,rgba(0,0,0,.48),transparent),url(https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80)"><span class="badge">Late night</span><span class="badge">R25 off</span></div><div class="body"><b>Slice Theory</b><p class="sub">Pizza • 6 min walk • student combo</p></div></div></div></div></div><div class="shot-title">Discover</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="hero-photo photo" style="height:330px;margin:0;border-radius:0 0 34px 34px;--img:url(https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=80)"><span class="badge">Open until 23:00</span></div><div class="content stack"><h2 class="page-title">Nori & Noodles</h2><p class="sub">Japanese comfort food • 4.8 • 6 min from library • QR pay enabled</p><div class="row"><span class="pill">10% back</span><span class="pill">Group split</span><span class="pill">Halal options</span></div><button class="btn">View menu</button></div></div></div><div class="shot-title">Restaurant Details</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Menu</h2><div class="menu-row card"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=300&q=80)"></div><div><b>Spicy miso ramen</b><p class="sub">Egg, nori, chilli oil</p></div><b>R86</b></div><div class="menu-row card"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80)"></div><div><b>Campus power bowl</b><p class="sub">Avocado, greens, grains</p></div><b>R74</b></div><div class="menu-row card"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=300&q=80)"></div><div><b>Citrus salad</b><p class="sub">Add halloumi +R18</p></div><b>R69</b></div></div><div class="cart-total"><div class="row"><b>2 items</b><b>R160</b></div><button class="btn" style="margin-top:10px">View cart</button></div></div></div><div class="shot-title">Menu</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Cart</h2><div class="card" style="padding:16px"><div class="row"><b>Nori & Noodles</b><span class="pill">Pickup 12 min</span></div><p class="sub">2 items • earn 160 Plate Points</p></div><div class="setting row"><span>Spicy miso ramen</span><b>R86</b></div><div class="setting row"><span>Campus power bowl</span><b>R74</b></div><div class="glass-reward card" style="padding:16px"><b>Apply R25 student reward?</b><p class="sub">Expires tonight at 23:59.</p></div><div class="row"><span>Total</span><h2>R135</h2></div><button class="btn">Pay with PayPlate</button></div></div></div><div class="shot-title">Cart</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Wallet</h2><div class="wallet-card card"><p>PayPlate Black</p><h1>R 428.40</h1><span class="badge">+ R34.20 cashback pending</span></div><div class="row setting"><span>💳 Linked card</span><b>Visa • 0421</b></div><div class="row setting"><span>⚡ Auto top-up</span><b>R200</b></div><div class="row setting"><span>🛡 Spend alerts</span><b>On</b></div><button class="btn">Add funds</button></div></div></div><div class="shot-title">Wallet</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen" style="background:#080706;color:white"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Scan to pay</h2><p class="sub">Align the restaurant QR code in the frame. Haptic confirmation triggers instantly.</p><div class="scanner"><div class="scanline"></div></div><button class="btn">Enter code manually</button></div></div></div><div class="shot-title">QR Scanner</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack" style="text-align:center"><div class="success-ring">✓</div><h2 class="page-title">Payment complete</h2><p class="sub">R135.00 paid to Nori & Noodles. You earned 160 Plate Points and R13.50 cashback.</p><div class="glass-reward card" style="padding:18px;text-align:left"><b>Receipt #PP-2026-0842</b><p class="sub">Pickup at counter 3 in 12 minutes.</p></div><button class="btn">Done</button></div></div></div><div class="shot-title">Payment Success</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Rewards</h2><div class="glass-reward card" style="padding:20px;background:linear-gradient(135deg,rgba(255,107,53,.28),rgba(34,197,94,.18))"><span class="badge">Level 4</span><h2>2,840 Plate Points</h2><p class="sub">320 pts until a free entree.</p></div><div class="glass-reward card" style="padding:16px"><b>🥤 Free smoothie</b><p class="sub">Redeem after your next salad order.</p></div><div class="glass-reward card" style="padding:16px"><b>🍜 Ramen streak</b><p class="sub">2 of 3 visits completed.</p></div></div></div></div><div class="shot-title">Rewards</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Notifications</h2><div class="notice-row card"><div>🎉</div><div><b>Double points tonight</b><p class="sub">From 18:00–21:00 at Koi Sushi.</p></div><b>Now</b></div><div class="notice-row card"><div>✅</div><div><b>Payment complete</b><p class="sub">R135 sent to Nori & Noodles.</p></div><b>2m</b></div><div class="notice-row card"><div>🔥</div><div><b>New campus deal</b><p class="sub">15% back near the library.</p></div><b>1h</b></div></div></div></div><div class="shot-title">Notifications</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Order history</h2><div class="history-row card"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=300&q=80)"></div><div><b>Burger Lab</b><p class="sub">Today • Wallet</p></div><b>R118</b></div><div class="history-row card"><div class="thumb" style="background-image:url(https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=300&q=80)"></div><div><b>Saffron Social</b><p class="sub">Yesterday • +112 pts</p></div><b>R184</b></div></div></div></div><div class="shot-title">Order History</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Favorites</h2><div class="restaurant-card card"><div class="photo" style="background-image:linear-gradient(to top,rgba(0,0,0,.48),transparent),url(https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80)"><span class="badge">♥ Saved</span></div><div class="body"><b>Burger Lab</b><p class="sub">Your Friday regular • R20 reward active</p></div></div><div class="restaurant-card card"><div class="photo" style="background-image:linear-gradient(to top,rgba(0,0,0,.48),transparent),url(https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=80)"><span class="badge">♥ Saved</span></div><div class="body"><b>Koi Sushi Lab</b><p class="sub">Best rated near residence</p></div></div></div></div></div><div class="shot-title">Favorites</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><div class="row"><div><h2 class="page-title">Maya Chen</h2><p class="sub">Design major • UCT • North Campus</p></div><div class="avatar" style="width:76px;height:76px"></div></div><div class="glass-reward card" style="padding:18px"><b>Campus foodie</b><p class="sub">Top 8% of PayPlate explorers this month.</p></div><div class="row setting"><span>Favorite cuisine</span><b>Japanese</b></div><div class="row setting"><span>Dietary tags</span><b>Veg-friendly</b></div><div class="row setting"><span>Monthly saved</span><b>R214</b></div></div></div></div><div class="shot-title">Profile</div></section>
+
+    <section class="shot"><div class="phone"><div class="screen"><div class="status"><span>9:41</span><span>◖◉◗</span></div><div class="content stack"><h2 class="page-title">Settings</h2><div class="row setting"><span>Appearance</span><b>System</b></div><div class="row setting"><span>Notifications</span><b>Smart</b></div><div class="row setting"><span>Privacy</span><b>High</b></div><div class="row setting"><span>Campus verification</span><b style="color:var(--emerald)">Active</b></div><div class="row setting"><span>Currency</span><b>ZAR / Rands</b></div><button class="btn alt">Sign out</button></div></div></div><div class="shot-title">Settings</div></section>
+  </main>
+</body>
+</html>
