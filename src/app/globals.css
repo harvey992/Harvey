@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: Inter, system-ui, sans-serif;
-  --font-heading: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
   --color-primary: #0D9F6E;
   --color-secondary: #ECFDF5;
   --color-accent: #22C55E;
@@ -44,7 +44,7 @@
 
 * { border-color: var(--border); }
 html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-body { background: var(--background); color: var(--foreground); font-family: Inter, system-ui, sans-serif; }
+body { background: var(--background); color: var(--foreground); font-family: var(--font-inter), system-ui, sans-serif; }
 :focus-visible { outline: 3px solid color-mix(in srgb, var(--ring) 70%, transparent); outline-offset: 3px; }
 ::selection { background: #0D9F6E; color: white; }
 
